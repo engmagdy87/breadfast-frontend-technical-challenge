@@ -1,22 +1,23 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { useAppDispatch } from "hooks";
+import { useAppDispatch, useAppSelector } from "appHooks";
 import { fetchProducts } from "features/products/products.actions";
 import { productsSelector } from "features/products/products.selectors";
-import Loader from "shared/Loader";
-import dynamic from "next/dynamic";
-import ProductCard from "components/ProductCard";
 import { Product } from "features/products/products.types";
-import LoadMore from "shared/LoadMore";
-import Image from "next/image";
+import { addToCart } from "features/cart/cart.reducer";
+import Loader from "components/shared/Loader";
+import Error from "components/shared/Error";
+import ProductCard from "components/ui/ProductCard";
+import LoadMore from "components/ui/LoadMore";
 
 const Home = () => {
   const dispatch = useAppDispatch();
   const initialFetchDone = useRef(false);
 
-  const { data, isLoading, error } = useSelector(productsSelector);
+  const { data, isLoading, error } = useAppSelector(productsSelector);
   const { products, total, skip, limit } = data;
 
   const fetchAllProducts = async (
@@ -36,6 +37,18 @@ const Home = () => {
     }
   };
 
+  const addProductToCart = (product: Product) => {
+    const { id, title, price, thumbnail } = product;
+    const payload = {
+      id,
+      name: title,
+      price,
+      quantity: 1,
+      imageUrl: thumbnail,
+    };
+    dispatch(addToCart(payload));
+  };
+
   useEffect(() => {
     if (!initialFetchDone.current && !products.length && !isLoading) {
       initialFetchDone.current = true;
@@ -45,7 +58,7 @@ const Home = () => {
 
   if (isLoading && !products.length) return <Loader />;
 
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <Error retryAction={fetchAllProducts} />;
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -56,7 +69,7 @@ const Home = () => {
           mb: 4,
           fontSize: {
             xs: "1.25rem",
-            lg: "2rem",
+            md: "2rem",
           },
           fontWeight: 600,
         }}
@@ -71,6 +84,7 @@ const Home = () => {
               name={product.title}
               price={product.price}
               description={product.description}
+              addToCart={() => addProductToCart(product)}
             />
           </Grid>
         ))}

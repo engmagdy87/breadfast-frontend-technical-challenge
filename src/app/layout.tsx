@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Box } from "@mui/material";
-import Header from "shared/Header";
+import Header from "components/layout/Header";
 import Providers from "./providers";
 import "./globals.css";
 

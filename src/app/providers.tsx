@@ -3,8 +3,8 @@
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Provider } from "react-redux";
-import theme from "../utils/theme";
-import { store } from "../store";
+import { store } from "store";
+import theme from "utils/theme";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,13 +1,14 @@
 "use client";
 import { createTheme } from "@mui/material/styles";
+import Colors from "constants/colors";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#aa0082",
+      main: Colors.Primary,
     },
     secondary: {
-      main: "#edffef",
+      main: Colors.Secondary,
     },
   },
 });

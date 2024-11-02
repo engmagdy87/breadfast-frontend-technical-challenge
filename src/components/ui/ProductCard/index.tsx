@@ -6,7 +6,6 @@ import {
   Typography,
   Box,
   Button,
-  CircularProgress,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
@@ -15,6 +14,7 @@ interface ProductCardProps {
   name: string;
   price: number;
   description: string;
+  addToCart: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -22,6 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   name,
   price,
   description,
+  addToCart,
 }) => {
   const isLoading = false;
 
@@ -37,7 +38,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
         flexDirection: "column",
       }}
     >
-      <CardMedia component="img" height="180" image={imageUrl} alt={name} />
+      <CardMedia
+        component="img"
+        height="180"
+        image={imageUrl}
+        alt={name}
+        loading="lazy"
+      />
       <CardContent
         sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
       >
@@ -46,7 +53,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             flexGrow: 1,
             display: "flex",
             flexDirection: "column",
-            gap: 1, // spacing between Typography components
+            gap: 1,
           }}
         >
           <Typography variant="h6" component="div" noWrap fontWeight={600}>
@@ -63,22 +70,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </Typography>
         </Box>
         <Button
-          variant={isLoading ? "contained" : "outlined"}
+          variant="contained"
           color="primary"
           fullWidth
           disableElevation
           sx={{ mt: 2 }}
-          onClick={() => {}}
+          onClick={addToCart}
           disabled={isLoading}
-          startIcon={
-            isLoading ? (
-              <CircularProgress size={20} color="inherit" />
-            ) : (
-              <AddShoppingCartIcon />
-            )
-          }
+          startIcon={<AddShoppingCartIcon />}
         >
-          {isLoading ? "Adding..." : "Add to Cart"}
+          Add to Cart
         </Button>
       </CardContent>
     </Card>

@@ -1,7 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-const Loader = () => {
+const FullScreenCenterContentWrapper = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
   return (
     <Box
       sx={{
@@ -11,18 +15,14 @@ const Loader = () => {
         width: "100%",
         height: "100%",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        zIndex: 9999,
       }}
     >
-      <img
-        src="breadfast.png"
-        alt="Loading..."
-        style={{ width: "70px", height: "auto" }}
-      />
+      {children}
     </Box>
   );
 };
 
-export default Loader;
+export default FullScreenCenterContentWrapper;

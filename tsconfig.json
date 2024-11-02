@@ -20,10 +20,12 @@
     ],
     "paths": {
       "components/*": ["./src/components/*"],
-      "shared/*": ["./src/shared/*"],
       "features/*": ["./src/store/features/*"],
-      "hooks": ["./src/store/hooks/index.ts"],
-      "types": ["./src/types.ts"]
+      "appHooks": ["./src/store/hooks/index.ts"],
+      "hooks/*": ["./src/hooks/*"],
+      "utils/*": ["./src/utils/*"],
+      "store": ["./src/store/index.ts"],
+      "constants/*": ["./src/constants/*"]
     }
   },
   "include": [

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, SerializedError } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchProducts } from "./products.actions";
 import {
   FetchProductsResponse,

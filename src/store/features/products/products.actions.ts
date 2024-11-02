@@ -1,7 +1,7 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const apiUrl = "https://dummyjson.com";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchProducts = createAsyncThunk(
   "products/fetch",
