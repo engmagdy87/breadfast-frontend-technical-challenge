@@ -19,7 +19,7 @@ Make sure you have the following installed on your machine:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/breadfast-frontend-technical-challenge.git
+git clone https://github.com/engmagdy87/breadfast-frontend-technical-challenge.git
 cd breadfast-frontend-technical-challenge
 ```
 
