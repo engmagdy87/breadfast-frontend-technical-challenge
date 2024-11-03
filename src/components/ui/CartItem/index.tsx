@@ -14,7 +14,7 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { type CartItem as CartItemType } from "features/cart/cart.types";
+import type { CartItem as CartItemType } from "features/cart/cart.types";
 
 interface CartItemProps {
   data: CartItemType;
@@ -88,7 +88,7 @@ const CartItem: React.FC<CartItemProps> = ({
         >
           <Box
             sx={{
-              width: { xs: "100%", md: "30%" },
+              width: { xs: "100%", sm: "40%", md: "50%" },
               textAlign: { xs: "center", md: "left" },
             }}
           >
@@ -126,13 +126,18 @@ const CartItem: React.FC<CartItemProps> = ({
               size="small"
               onClick={handleDecrement}
               disabled={quantity <= 1}
+              data-testid="decrement"
             >
               <RemoveIcon />
             </IconButton>
             <Typography sx={{ minWidth: "40px", textAlign: "center" }}>
               {quantity}
             </Typography>
-            <IconButton size="small" onClick={handleIncrement}>
+            <IconButton
+              size="small"
+              onClick={handleIncrement}
+              data-testid="increment"
+            >
               <AddIcon />
             </IconButton>
           </Stack>
@@ -151,6 +156,7 @@ const CartItem: React.FC<CartItemProps> = ({
               color="error"
               onClick={handleRemove}
               sx={{ whiteSpace: "nowrap" }}
+              data-testid="remove"
             >
               Remove
             </Button>

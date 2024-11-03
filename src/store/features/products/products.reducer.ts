@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchProducts } from "./products.actions";
-import {
+import type {
   FetchProductsResponse,
   Products,
 } from "features/products/products.types";

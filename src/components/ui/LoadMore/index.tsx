@@ -1,35 +1,35 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 
 interface LoadMoreProps {
   onLoadMore: () => void;
   loading: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-const LoadMore: React.FC<LoadMoreProps> = ({ onLoadMore, loading }) => {
-  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+const LoadMore: React.FC<LoadMoreProps> = ({
+  onLoadMore,
+  loading,
+  className,
+  style,
+}) => {
+  const loadMoreRef = useIntersectionObserver({
+    onIntersect: onLoadMore,
+    enabled: !loading,
+  });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loading) {
-          onLoadMore();
-        }
-      },
-      { threshold: 1.0 }
-    );
-
-    if (loadMoreRef.current) {
-      observer.observe(loadMoreRef.current);
-    }
-
-    return () => {
-      if (loadMoreRef.current) {
-        observer.unobserve(loadMoreRef.current);
-      }
-    };
-  }, [onLoadMore, loading]);
-
-  return <div ref={loadMoreRef} style={{ height: "20px", margin: "20px 0" }} />;
+  return (
+    <div
+      ref={loadMoreRef}
+      className={className}
+      style={{
+        height: "20px",
+        margin: "20px 0",
+        ...style,
+      }}
+    />
+  );
 };
 
 export default LoadMore;

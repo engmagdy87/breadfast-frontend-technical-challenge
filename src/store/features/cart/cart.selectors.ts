@@ -1,4 +1,4 @@
-import { Cart } from "features/cart/cart.types";
+import type { Cart } from "features/cart/cart.types";
 
 export const selectCartItemsCount = (state: { cart: Cart }) =>
   state.cart.data.reduce((total, item) => total + item.quantity, 0);

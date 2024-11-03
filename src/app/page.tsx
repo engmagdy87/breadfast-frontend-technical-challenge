@@ -6,7 +6,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "appHooks";
 import { fetchProducts } from "features/products/products.actions";
 import { productsSelector } from "features/products/products.selectors";
-import { Product } from "features/products/products.types";
+import type { Product } from "features/products/products.types";
 import { addToCart } from "features/cart/cart.reducer";
 import Loader from "components/shared/Loader";
 import Error from "components/shared/Error";
@@ -69,6 +69,7 @@ const Home = () => {
           mb: 4,
           fontSize: {
             xs: "1.25rem",
+            sm: "1.75rem",
             md: "2rem",
           },
           fontWeight: 600,
@@ -107,4 +108,5 @@ const Home = () => {
   );
 };
 
+// Hydration issue fix
 export default dynamic(() => Promise.resolve(Home), { ssr: false });
