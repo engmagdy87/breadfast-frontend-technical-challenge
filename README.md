@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Breadfast Frontend Technical Challenge
 
-First, run the development server:
+This is a ReactJS application built with Next.js and TypeScript, showcasing various features such as lazy loading images, custom hooks, and data persistence.
+
+## Installation and Running the Application Locally
+
+To get started with the project, follow these instructions:
+
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 14 or later)
+- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
+
+### Clone the Repository
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/breadfast-frontend-technical-challenge.git
+cd breadfast-frontend-technical-challenge
+```
+
+### Install Dependencies
+
+Run the following command to install the required npm packages:
+
+```bash
+npm install
+```
+
+### Run the Application
+
+Once the dependencies are installed, you can run the application in development mode:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be running on `http://localhost:3000`. Open this URL in your browser to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To build the application for production, use the following command:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+After the build process is complete, you can start the production server with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Running Tests
+
+This application uses Jest for testing. To run the tests, execute:
+
+```bash
+npm test
+```
+
+## Features
+
+- **Lazy Loading Images**: Optimizes image loading for better performance.
+- **Custom Hooks**: Provides reusable logic for managing state and effects.
+- **Data Persistence**: Utilizes `redux-persist` to maintain the application state across sessions.
+
+## Used npm Packages
+
+- `next`: The React framework for server-side rendering.
+- `typescript`: A strict syntactical superset of JavaScript that adds optional static typing.
+- `@mui/material`: A popular React UI framework that provides Material Design components.
+- `axios`: A promise-based HTTP client for making requests.
+- `@reduxjs/toolkit`: The official, recommended way to write Redux logic.
+- `redux-persist`: A library that enables state persistence in Redux.
+- `jest`: A delightful JavaScript testing framework.
 
 ## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
