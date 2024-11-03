@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error Component matches snapshot 1`] = `
+<div>
+  <div
+    data-testid="informative-screen"
+  >
+    <img
+      alt="Warning icon"
+      data-testid="error-icon"
+      src="/warning.png"
+    />
+    <h1>
+      Something Went Wrong
+    </h1>
+    <p>
+      Please try again!
+    </p>
+    <button
+      data-testid="try-again-btn"
+    >
+      Try Again
+    </button>
+  </div>
+</div>
+`;

@@ -207,14 +207,14 @@ describe("Home Page", () => {
       selector(store.getState())
     );
 
-    const { getByTestId } = render(
+    const { getByRole } = render(
       <Provider store={store}>
         <Home />
       </Provider>
     );
 
-    const addToCartButton = screen.getByRole("button", {
-      name: "add to cart",
+    const addToCartButton = getByRole("button", {
+      name: "Add to Cart",
     });
     fireEvent.click(addToCartButton);
 
@@ -259,13 +259,13 @@ describe("Home Page", () => {
       selector(store.getState())
     );
 
-    const { getByTestId } = render(
+    const { getByRole } = render(
       <Provider store={store}>
         <Home />
       </Provider>
     );
 
-    const loadMoreButton = screen.getByRole("button", { name: "load more" });
+    const loadMoreButton = getByRole("button", { name: "Load More" });
     fireEvent.click(loadMoreButton);
 
     await waitFor(() => {
